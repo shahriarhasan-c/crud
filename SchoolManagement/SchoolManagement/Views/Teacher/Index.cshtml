@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SchoolManagement.Models.Teacher>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Teachers</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Subject</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach(var item in Model){
+                <tr>
+                    <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Subject</td>
+                <td><a href="@Url.Action("Edit","Teacher",new {id = item.Id})" class="btn btn-info">Update</a></td>
+                <td><a href="@Url.Action("Delete","Teacher",new {id = item.Id})" class="btn btn-info">Delete</a></td>
+                
+                </tr>
+            }
+            
+        
+    </tbody>
+</table>
